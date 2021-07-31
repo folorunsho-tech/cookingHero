@@ -1,4 +1,3 @@
-// https://api.edamam.com/api/recipes/v2/recipe_2e9b699be433fab7da069629e1699455?type=public&app_id=65c46165&app_key=22b5501e71234e8faec8a6380aa7d194
 import React from "react";
 import { IoIosTimer } from "react-icons/io";
 import { BiDish } from "react-icons/bi";

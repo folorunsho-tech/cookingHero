@@ -1,0 +1,3 @@
+.catActive {
+  @apply bg-red-600;
+}

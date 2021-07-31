@@ -19,7 +19,7 @@ const useFetch = (baseURL, config) => {
       }
     };
     getData();
-  }, []);
+  }, [baseURL, config]);
   return { data, loading, error };
 };
 
