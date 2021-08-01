@@ -73,6 +73,19 @@ const FoodSection = ({ title, content, showOptions, options }) => {
               </Grid>
             )}
           </Route>
+          <Route path="/" exact>
+            {w >= 400 && (
+              <Grid>
+                {recipes.map((recipe) => (
+                  <Card
+                    key={recipe.idMeal}
+                    title={recipe.strMeal}
+                    img={recipe.strMealThumb}
+                  />
+                ))}
+              </Grid>
+            )}
+          </Route>
         </section>
       )}
     </BrowserRouter>

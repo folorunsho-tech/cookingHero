@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiSearch2Fill } from "react-icons/ri";
 import FoodSection from "./FoodSection";
 
 const Home = () => {
   const w = window.innerWidth;
+  const [savedRecipes, setSavedRecipes] = useState([]);
 
   let catList = [
     "Beef",
