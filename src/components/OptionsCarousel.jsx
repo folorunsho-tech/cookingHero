@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 import "../Styles/app.css";
-const OptionsCarousel = ({ options }) => {
-  const [current, setCurrent] = useState();
-
-  useEffect(() => {
-    const isMatched = () => {
-      setCurrent(window.location.hash);
-    };
-    isMatched();
-  }, [window.location.hash]);
-
+const OptionsCarousel = ({ options, setCurrent }) => {
   return (
     <section className="flex gap-3 px-4 py-4 overflow-x-auto w-full">
       {options.map((option) => {
         return (
           <NavLink
             key={option}
-            style={{
-              color: "white",
-              backgroundColor: current === `#${option}` ? "red" : "blue",
+            activeClassName="bg-red-500"
+            activeStyle={{ background: "red" }}
+            to={`/:${option}`}
+            onClick={() => {
+              setCurrent(option);
             }}
-            to={`/#${option}`}
+            exact
+            strict
             className="cursor-pointer w-max hover:bg-red-600 transition rounded-full py-1 px-4 duration-300 ease-in-out bg-blue-600 text-white"
           >
             {option}

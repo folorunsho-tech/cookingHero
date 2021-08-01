@@ -19,7 +19,7 @@ const Nav = () => {
         )}
         <ul className="flex justify-between w-full lg:flex-col lg:h-2/4 lg:pl-4 md:mr-4">
           <NavLink activeClassName="active" exact to="/" className="li">
-            <MdExplore size="1.3rem" />
+            <MdExplore className="text-2xl" />
             Explore
           </NavLink>
 
@@ -29,12 +29,12 @@ const Nav = () => {
             activeClassName="active"
             className="li"
           >
-            <MdFavorite size="1.3rem" />
+            <MdFavorite className="text-2xl" />
             Favourites
           </NavLink>
 
           <NavLink exact to="/settings" activeClassName="active" className="li">
-            <MdSettings size="1.3rem" />
+            <MdSettings className="text-2xl" />
             Settings
           </NavLink>
         </ul>

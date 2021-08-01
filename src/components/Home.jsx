@@ -1,22 +1,26 @@
 import React from "react";
 import { RiSearch2Fill } from "react-icons/ri";
-import useFetch from "../Hooks/useFetch";
 import FoodSection from "./FoodSection";
 
 const Home = () => {
   const w = window.innerWidth;
-  const { data, error, loading } = useFetch(
-    "https://www.themealdb.com/api/json/v1/1/categories.php"
-  );
-  let catList = [];
-  if (data === null) {
-    console.log("loading");
-  } else {
-    data.categories.forEach((cat) => {
-      catList.push(cat.strCategory);
-    });
-    catList = catList.sort();
-  }
+
+  let catList = [
+    "Beef",
+    "Breakfast",
+    "Chicken",
+    "Dessert",
+    "Goat",
+    "Lamb",
+    "Miscellaneous",
+    "Pasta",
+    "Pork",
+    "Seafood",
+    "Side",
+    "Starter",
+    "Vegan",
+    "Vegetarian",
+  ];
 
   return (
     <section className="col-span-5 lg:mt-3 space-y-12">
@@ -45,7 +49,6 @@ const Home = () => {
         content={null}
         showOptions={true}
         options={catList}
-        loading={loading}
       />
     </section>
   );
