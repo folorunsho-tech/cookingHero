@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RiSearch2Fill } from "react-icons/ri";
 import FoodSection from "./FoodSection";
-
+import axios from "axios";
 const Home = () => {
   const w = window.innerWidth;
   const [savedRecipes, setSavedRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+  const [current, setCurrent] = useState("Beef");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    (async function () {
+      setLoading(true);
+      const { data } = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${current}`
+      );
+      setLoading(false);
+      setRecipes(data.meals.splice(0, 6));
+
+      setCurrent(current);
+    })();
+  }, [current]);
 
   let catList = [
     "Beef",
@@ -43,13 +58,23 @@ const Home = () => {
           </button>
         </div>
       </header>
-      <FoodSection title="Saved Recipes" content={null} showOptions={false} />
+      <FoodSection
+        title="Saved Recipes"
+        content={recipes}
+        showOptions={false}
+        viewAll={`/favourites`}
+        loading={loading}
+      />
 
       <FoodSection
         title="Discover Recipes"
-        content={null}
+        content={recipes}
+        current={current}
+        setCurrent={setCurrent}
         showOptions={true}
         options={catList}
+        loading={loading}
+        viewAll={`/favourites`}
       />
     </section>
   );
