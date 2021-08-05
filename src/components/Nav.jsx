@@ -2,7 +2,7 @@ import { BrowserRouter, NavLink } from "react-router-dom";
 import React from "react";
 import { MdExplore } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
-import { MdSettings } from "react-icons/md";
+import { MdFolder } from "react-icons/md";
 import "../Styles/nav.css";
 const Nav = () => {
   const w = window.innerWidth;
@@ -33,9 +33,14 @@ const Nav = () => {
             Favourites
           </NavLink>
 
-          <NavLink exact to="/settings" activeClassName="active" className="li">
-            <MdSettings className="text-2xl" />
-            Settings
+          <NavLink
+            exact
+            to="/categories"
+            activeClassName="active"
+            className="li"
+          >
+            <MdFolder className="text-2xl" />
+            Categories
           </NavLink>
         </ul>
         {w > 400 && (

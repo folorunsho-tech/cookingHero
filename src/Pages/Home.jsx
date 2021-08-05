@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { RiSearch2Fill } from "react-icons/ri";
-import FoodSection from "./FoodSection";
+import FoodSection from "../components/FoodSection";
 import axios from "axios";
 const Home = () => {
   const w = window.innerWidth;
   const [savedRecipes, setSavedRecipes] = useState([]);
+  const [cuisines, setCuisines] = useState([]);
+  const [cuisine, setCuisine] = useState("American");
+  const [cuisineLoading, setCuisineLoading] = useState(true);
+
   const [recipes, setRecipes] = useState([]);
   const [current, setCurrent] = useState("Beef");
   const [loading, setLoading] = useState(true);
@@ -37,6 +41,46 @@ const Home = () => {
     "Vegan",
     "Vegetarian",
   ];
+  useEffect(() => {
+    (async function () {
+      setCuisineLoading(true);
+      const { data } = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?a=${cuisine}`
+      );
+      setCuisineLoading(false);
+      setCuisines(data.meals);
+      setCuisine(cuisine);
+    })();
+  }, [cuisine]);
+
+  let cuisineList = [
+    "American",
+    "British",
+    "Canadian",
+    "Chinese",
+    "Dutch",
+    "Egyptian",
+    "French",
+    "Greek",
+    "Indian",
+    "Irish",
+    "Italian",
+    "Jamaican",
+    "Japanese",
+    "Kenyan",
+    "Malaysian",
+    "Mexican",
+    "Moroccan",
+    "Polish",
+    "Portuguese",
+    "Russian",
+    "Spanish",
+    "Thai",
+    "Tunisian",
+    "Turkish",
+    "Unknown",
+    "Vietnamese",
+  ];
 
   return (
     <section className="col-span-5 lg:mt-3 space-y-12">
@@ -63,6 +107,7 @@ const Home = () => {
         content={recipes}
         showOptions={false}
         viewAll={`/favourites`}
+        showViewAll={true}
         loading={loading}
       />
 
@@ -73,8 +118,18 @@ const Home = () => {
         setCurrent={setCurrent}
         showOptions={true}
         options={catList}
+        showViewAll={false}
         loading={loading}
-        viewAll={`/favourites`}
+      />
+      <FoodSection
+        title="Recipe Cuisines"
+        content={cuisines}
+        current={cuisine}
+        setCurrent={setCuisine}
+        showOptions={true}
+        options={cuisineList}
+        loading={cuisineLoading}
+        showViewAll={false}
       />
     </section>
   );

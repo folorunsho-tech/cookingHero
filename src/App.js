@@ -1,12 +1,12 @@
 import React from "react";
 
-import Home from "./components/Home";
+import Home from "./Pages/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Favourites from "./Pages/Favourites";
 import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
-import Settings from "./Pages/Settings";
+import Categories from "./Pages/Categories";
 const App = () => {
   return (
     <BrowserRouter forceRefresh={true}>
@@ -15,7 +15,7 @@ const App = () => {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/favourites" component={Favourites} exact />
-          <Route path="/settings" component={Settings} exact />
+          <Route path="/categories" component={Categories} exact />
           <Route path="/signin" component={SignIn} exact />
           <Route path="/signup" component={SignUp} exact />
         </Switch>

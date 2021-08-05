@@ -2,7 +2,7 @@
 import { VscLoading } from "react-icons/vsc";
 import { FiChevronRight } from "react-icons/fi";
 import Card from "./Card";
-import { BrowserRouter, Link, NavLink, Route } from "react-router-dom";
+import { BrowserRouter, NavLink, Route } from "react-router-dom";
 import Grid from "./Grid";
 import CarouselContianer from "./Carousel";
 import OptionsCarousel from "./OptionsCarousel";
@@ -16,6 +16,7 @@ const FoodSection = ({
   current,
   setCurrent,
   viewAll,
+  showViewAll,
   loading,
 }) => {
   return (
@@ -32,13 +33,15 @@ const FoodSection = ({
         <section>
           <div className="flex justify-between items-center pr-12">
             <h2 className="text-xl text-black pl-6 py-2">{title}</h2>
-            <NavLink
-              to={viewAll}
-              className="text-blue-500 flex items-center gap-2 cursor-pointer"
-            >
-              View All
-              <FiChevronRight />
-            </NavLink>
+            {showViewAll && (
+              <NavLink
+                to={viewAll}
+                className="text-blue-500 flex items-center gap-2 cursor-pointer"
+              >
+                View All
+                <FiChevronRight />
+              </NavLink>
+            )}
           </div>
           {showOptions && (
             <OptionsCarousel
