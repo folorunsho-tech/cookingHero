@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "../components/Card";
 import "../Styles/nav.css";
-
+import { RecipeContext } from "../Contexts/RecipeContext";
 const Favourites = () => {
+  const { Recipes } = useContext(RecipeContext);
+  console.log(Recipes);
   return (
     <section className="space-y-8 py-8 w-full">
       <h2 className="text-xl">Your Favourite Recipes</h2>

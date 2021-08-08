@@ -46,8 +46,7 @@ const Nav = () => {
         {w > 400 && (
           <>
             <div className="profile">
-              <div className="bg-gray-500 w-12 rounded-full p-4"></div>
-              <p className="text-gray-500 text-xs ">Folorunsho Ibrahim</p>
+              <p className="text-gray-900 text-xs pl-4">Folorunsho Ibrahim</p>
             </div>
           </>
         )}

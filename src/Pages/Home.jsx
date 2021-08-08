@@ -19,7 +19,7 @@ const Home = () => {
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${current}`
       );
       setLoading(false);
-      setRecipes(data.meals.splice(0, 6));
+      setRecipes(data.meals.splice(0, 8));
 
       setCurrent(current);
     })();
@@ -48,7 +48,7 @@ const Home = () => {
         `https://www.themealdb.com/api/json/v1/1/filter.php?a=${cuisine}`
       );
       setCuisineLoading(false);
-      setCuisines(data.meals);
+      setCuisines(data.meals.splice(0, 8));
       setCuisine(cuisine);
     })();
   }, [cuisine]);

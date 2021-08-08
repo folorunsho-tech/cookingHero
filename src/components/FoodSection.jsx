@@ -58,6 +58,7 @@ const FoodSection = ({
                     key={recipe.idMeal}
                     title={recipe.strMeal}
                     img={recipe.strMealThumb}
+                    id={recipe.idMeal}
                   />
                 ))}
               </CarouselContianer>
@@ -69,6 +70,7 @@ const FoodSection = ({
                     key={recipe.idMeal}
                     title={recipe.strMeal}
                     img={recipe.strMealThumb}
+                    id={recipe.idMeal}
                   />
                 ))}
               </Grid>
@@ -82,6 +84,7 @@ const FoodSection = ({
                     key={recipe.idMeal}
                     title={recipe.strMeal}
                     img={recipe.strMealThumb}
+                    id={recipe.idMeal}
                   />
                 ))}
               </Grid>
